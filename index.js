@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const bodyParser = require('body-parser');
+const { get } = require('http');
+const { text } = require('express');
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
@@ -23,7 +25,7 @@ app.post('/login', (req, res) => {
   if (req.body.email == "admin@email.com" && req.body.password == "admin") {
     res.redirect("/home")
   } else { 
-    res.render("login",{error: "Invalid email or password"})
+    res.send('failed')
   }
 });
 
