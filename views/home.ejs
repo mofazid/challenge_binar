@@ -15,36 +15,76 @@
 <body>
   <h1 class="d-flex justify-content-center py-5">
     Users
-  </h1> 
+  </h1>
 
-  <div class="d-flex justify-content-center py-5">
-    <div class="card p-5" style="width: 600px;">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% let users = 
-          [{name:'abdan',
-           email: 'abdan@email.com',
-            password: 'sapulidi'},
-          {name:'fauzan',
-           email: 'fauzan@email.com',
-            password: 'batuempang'}] %> 
-          <% for (let i = 0; i < users.length; i++) { %>
-          <tr>
-            <td><%= users[i].name %></td> 
-            <td><%= users[i].email %></td>
-            <td><%= users[i].password %> <button>edit</button></td>
-          </tr>
-          <% } %>
-        </tbody>
-      </table>
-    </div>
+  <div class="container add-menu py-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-10 ">
+          <form action="" class=" ">
+            <div class="mb-3">
+              <label >Name</label>
+              <input  class="form-control" id="inputName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label >Password</label>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label >Age</label>
+              <input  class="form-control" id="inputAge" placeholder="Insertyour age">
+            </div>
+            <div class="form-group">
+              <label >city</label>
+              <input  class="form-control" id="inputCity" placeholder="Insert which city do you live">
+            </div>
+            <div class="form-group">
+              <label >Game</label>
+              <input  class="form-control" id="inputGame" placeholder="what game do you play">
+            </div>
+            <div class="form-group">
+              <label >Wins</label>
+              <input   class="form-control" id="inputWins" placeholder="how many wins did you get">
+            </div>
+          </form>
+          <button type="submit" id="btnRegister" class="btn btn-primary btn-block" onclick=handleInsertData()>Register User</button>
+          <button type="submit" id="btnUpdate" class="btn btn-warning btn-block" onclick=handleUpdateData() disabled>Update User</button>
+        <form class="d-flex py-5" role="search">
+          <input class="form-control me-2 center" id="searchBar" type="search" placeholder="Search User" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+  
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Password</th>
+              <th scope="col">Age</th>
+              <th scope="col">City</th>
+              <th scope="col">Game</th>
+              <th scope="col">Win</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < users.length; i++) { %>
+            <tr id="<%= users[i].id %>">
+              <th scope="row"><%= users[i].id %></th>
+              <td><%= users[i].name %></td>
+              <td><%= users[i].password %></td>
+              <td><%= users[i].age %></td>
+              <td><%= users[i].city %></td>
+              <td><%= users[i].game %></td>
+              <td><%= users[i].wins %></td>
+              <td>
+                <button type="button"  class="btn btn-primary" onclick=handleUpdateData(<%= users[i].id %>)>Update</button>
+                <button type="button" class="btn btn-danger" onclick=handleDeleteData(<%= users[i].id %>)>Delete</button>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
 
     <script src="/js/home.js"></script>
 </body>
