@@ -18,9 +18,14 @@
   },
   "homepage": "https://github.com/mofazid/challenge_binar#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
+    "pg": "^8.8.0",
     "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
   }
 }
